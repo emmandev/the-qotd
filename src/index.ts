@@ -18,7 +18,10 @@ import { setup } from './rest';
       return;
     }
 
-    await commandHandler(interaction.commandName).execute(interaction);
+    const command = commandHandler(interaction.commandName);
+
+    await command.execute(interaction)
+      .catch(console.error);
   });
 
   client.login(process.env.BOT_TOKEN);
