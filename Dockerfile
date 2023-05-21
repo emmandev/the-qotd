@@ -27,6 +27,8 @@ RUN yarn install --frozen-lockfile --production=false
 # Copy application code
 COPY --link . .
 
+RUN yarn build
+
 # Remove development dependencies
 RUN yarn install --production=true
 
@@ -35,7 +37,7 @@ RUN yarn install --production=true
 FROM base
 
 # Copy built application
-COPY --from=build /app /app
+COPY --from=build ./app/dist dist
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
