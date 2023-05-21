@@ -38,6 +38,8 @@ FROM base
 
 # Copy built application
 COPY --from=build ./app/dist dist
+COPY --from=build ./app/node_modules node_modules
+COPY --from=build ./app/package.json .
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
