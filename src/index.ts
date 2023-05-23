@@ -20,7 +20,7 @@ import { setup } from './rest';
 
     const command = commandHandler(interaction.commandName);
 
-    await command.execute(interaction)
+    await command.execute(interaction, client)
       .catch(console.error);
   });
 
