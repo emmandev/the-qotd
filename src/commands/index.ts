@@ -1,7 +1,9 @@
 import { Command } from '../types';
+import { pickQotdCommand } from './pick-qotd';
 import { pingCommand } from './ping';
 
 export const COMMANDS = {
+  [pickQotdCommand.command.name]: pickQotdCommand,
   [pingCommand.command.name]: pingCommand,
 };
 

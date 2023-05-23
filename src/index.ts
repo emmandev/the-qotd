@@ -6,7 +6,8 @@ import { setup } from './rest';
   const client = new Client({
     intents: [
       GatewayIntentBits.GuildMessages,
-    ]
+      GatewayIntentBits.MessageContent,
+    ],
   });
 
   client.once(Events.ClientReady, async () => {
