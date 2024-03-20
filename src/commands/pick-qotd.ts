@@ -81,10 +81,8 @@ export const pickQotdCommand: Command = {
 
     const embed = generateEmbedMessage(randomMessage.content, image?.url);
 
-    await Promise.all([
-      qotdChannel.send({ embeds: [embed] }),
-      randomMessage.delete(),
-    ]);
+    await qotdChannel.send({ embeds: [embed] });
+    await randomMessage.delete();
 
     await interaction.editReply('Done posting the QotD');
   },
